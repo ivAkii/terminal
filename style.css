@@ -16,7 +16,11 @@ html, body {
   overflow: hidden;
 }
 
-
+@media (min-width: 1280px){
+  body {
+    background-size: auto;
+  }
+}
 
 .terminal {
   background-color: #fdfeff75;

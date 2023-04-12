@@ -11,7 +11,11 @@ const commandFunctions = {
   },
   about: () => {
     printToTerminal(`I'm an 18-year-old computer science student in my first year of studies. A Manga enthusiast and used to watch anime a lot, but now I rarely do. Known as Gacha Addict in my circle. I love messing around with code and I find that I learn best through hands-on experience.`);
-},
+  },
+  contact: () => {
+    printToTerminal("Discord: Netizen AKi#1275")
+    printToTerminal("Mail: iv.akii.ouo@gmail.com")
+  },
 }
 function handleCommand(command) {
   if (!command) {
@@ -33,7 +37,7 @@ function createNewPrompt(command) {
   const prompt = document.createElement('span');
   prompt.classList.add('terminal-prompt');
   prompt.innerHTML  = 'user@guest <spam id="hotpink">$</spam>';
- // terminalBody.appendChild(document.createElement('br'));
+  terminalBody.appendChild(document.createElement('br'));
   const input = document.createElement('input');
   input.type = 'text';
   input.classList.add('terminal-input');
@@ -79,6 +83,21 @@ async function printToTerminal(text) {
   }
 }
 
+function createText(text, classname){
+  const p = document.createElement("p");
+  p.innerHTML = text;
+  terminalBody.appendChild(p);
+}
+
+function createCode(code, text){
+  const p = document.createElement("p");
+  p.setAttribute("class", "code");
+  p.innerHTML =`${code} : <span class='text'> ${text} </span>`;
+ terminalBody.appendChild(p);
+}
+
+
+
 window.addEventListener('load', () => {
   terminalInput.value = 'start';
   terminalInput.disabled = true;
@@ -95,25 +114,9 @@ async function open_terminal(){
   createCode("about", "Get to know me");
   await delay(700);
   createCode("contact", "My socials");
-
   await delay(500);
   createNewPrompt("start")
 }
 
 open_terminal();
 
-function createText(text, classname){
-  const p = document.createElement("p");
-  
-  p.innerHTML =
-  text
-  ;
-  terminalBody.appendChild(p);
-}
-function createCode(code, text){
-  const p = document.createElement("p");
-  p.setAttribute("class", "code");
-  p.innerHTML =
- `${code} : <span class='text'> ${text} </span>`;
- terminalBody.appendChild(p);
-}

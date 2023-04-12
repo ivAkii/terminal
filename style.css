@@ -92,7 +92,7 @@ html, body {
   font-family: 'KarlaRegular',courier,monospace;
   font-size: 16px;
   outline: none;
-  width: calc(100% - 20px); /* subtract the width of the prompt and margin from the input width */
+  /*width: calc(100% - 20px); /* subtract the width of the prompt and margin from the input width */
   display: inline-block;
   vertical-align: middle;
 }

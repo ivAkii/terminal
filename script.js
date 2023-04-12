@@ -9,9 +9,10 @@ const commandFunctions = {
   help: () => {
     printToTerminal('Available commands: test, help');
   },
-  // add more commands here
-};
-
+  about: () => {
+    printToTerminal(`I'm an 18-year-old computer science student in my first year of studies. A Manga enthusiast and used to watch anime a lot, but now I rarely do. Known as Gacha Addict in my circle. I love messing around with code and I find that I learn best through hands-on experience.`);
+},
+}
 function handleCommand(command) {
   if (!command) {
     createNewPrompt(command);
@@ -31,7 +32,7 @@ function createNewPrompt(command) {
   // const terminalBody = document.querySelector('.terminal-body');
   const prompt = document.createElement('span');
   prompt.classList.add('terminal-prompt');
-  prompt.textContent = '$';
+  prompt.textContent = 'user@guest $';
  // terminalBody.appendChild(document.createElement('br'));
   const input = document.createElement('input');
   input.type = 'text';
@@ -61,11 +62,21 @@ function handleKeyDown(event) {
 let terminalInput = document.querySelector('.terminal-input');
 terminalInput.addEventListener('keydown', handleKeyDown);
 
-function printToTerminal(text) {
+// function printToTerminal(text) {
+//   const terminalBody = document.querySelector('.terminal-body');
+//   const output = document.createElement('div');
+//   output.textContent = text;
+//   terminalBody.appendChild(output);
+// }
+async function printToTerminal(text) {
   const terminalBody = document.querySelector('.terminal-body');
   const output = document.createElement('div');
-  output.textContent = text;
   terminalBody.appendChild(output);
+
+  for (let i = 0; i < text.length; i++) {
+    output.textContent += text[i];
+    await delay(20); // adjust the delay time as needed
+  }
 }
 
 window.addEventListener('load', () => {
@@ -81,7 +92,7 @@ async function open_terminal(){
   await delay(1500);
   createText("Command List:");
   await delay(1500);
-  createCode("about", "Learn more about this project");
+  createCode("about", "Get to know me");
   await delay(1500);
   createCode("contact", "My socials");
 

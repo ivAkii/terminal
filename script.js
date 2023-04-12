@@ -32,7 +32,7 @@ function createNewPrompt(command) {
   // const terminalBody = document.querySelector('.terminal-body');
   const prompt = document.createElement('span');
   prompt.classList.add('terminal-prompt');
-  prompt.textContent = 'user@guest $';
+  prompt.innerHTML  = 'user@guest <spam id="hotpink">$</spam>';
  // terminalBody.appendChild(document.createElement('br'));
   const input = document.createElement('input');
   input.type = 'text';

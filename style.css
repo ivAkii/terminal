@@ -104,3 +104,7 @@ html, body {
 .terminal-input:focus {
   outline: none;
 }
+
+#hotpink {
+  color: #df3079;
+}

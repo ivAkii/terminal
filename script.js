@@ -28,7 +28,7 @@ function createNewPrompt(command) {
   const prompt = document.createElement('span');
   prompt.classList.add('terminal-prompt');
   prompt.textContent = '$';
-  terminalBody.appendChild(document.createElement('br'));
+ // terminalBody.appendChild(document.createElement('br'));
   const input = document.createElement('input');
   input.type = 'text';
   input.classList.add('terminal-input');

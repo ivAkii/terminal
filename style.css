@@ -1,15 +1,22 @@
-body {
+html, body {
+  height: 100%;
   background-color: #000;
-  color: #fff;
-  font-family: monospace;
+  background-image: linear-gradient(to bottom, #854c6e, #d27f73);
+  background-repeat: no-repeat;
+  color: #be7171;
+  font-family: 'KarlaRegular',courier,monospace;
   font-size: 16px;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
+
+
 .terminal {
-  background-color: #000;
-  border: 1px solid #fff;
+  background-color: #4b3031;
+  border: 2px solid ;
+  border-image: linear-gradient(135deg,#c82955,#783277) 1;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   height: 400px;
@@ -21,7 +28,8 @@ body {
 
 .terminal-header {
   background-color: #000;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid ;
+  border-image: linear-gradient(135deg,#c82955,#783277) 1;
   display: flex;
   height: 30px;
   justify-content: space-between;
@@ -29,12 +37,11 @@ body {
     position: sticky;
     top: 0;
     z-index: 1;
-  
-
 }
 
 .terminal-buttons {
   display: flex;
+  margin: 7px;
 }
 
 .terminal-button {
@@ -60,6 +67,7 @@ body {
 .terminal-title {
   font-size: 14px;
   font-weight: bold;
+  margin: 7px;
 }
 
 
@@ -81,7 +89,7 @@ body {
   background-color: transparent;
   border: none;
   color: #fff;
-  font-family: monospace;
+  font-family: 'KarlaRegular',courier,monospace;
   font-size: 16px;
   outline: none;
   width: calc(100% - 20px); /* subtract the width of the prompt and margin from the input width */

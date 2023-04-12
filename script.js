@@ -89,7 +89,7 @@ async function open_terminal(){
   createText("Welcome ");
   await delay(700);
   createText("Starting the server...");
-  await delay(1000);
+  await delay(850);
   createText("Command List:");
   await delay(700);
   createCode("about", "Get to know me");

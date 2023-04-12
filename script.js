@@ -16,6 +16,9 @@ const commandFunctions = {
     printToTerminal("Discord: Netizen AKi#1275")
     printToTerminal("Mail: iv.akii.ouo@gmail.com")
   },
+  start: () => {
+    printToTerminal("Permission Denied.")
+  },
 }
 function handleCommand(command) {
   if (!command) {

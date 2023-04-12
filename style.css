@@ -1,0 +1,94 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: monospace;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.terminal {
+  background-color: #000;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  height: 400px;
+  margin: 50px auto;
+  overflow: hidden;
+  width: 600px;
+  min-height: 430px; /* add a min-height to ensure that the terminal is always visible */
+}
+
+.terminal-header {
+  background-color: #000;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  padding: 5px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  
+
+}
+
+.terminal-buttons {
+  display: flex;
+}
+
+.terminal-button {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 12px;
+  margin-right: 5px;
+  width: 12px;
+}
+
+.terminal-button.red {
+  background-color: #ff5f57;
+}
+
+.terminal-button.yellow {
+  background-color: #ffbd2e;
+}
+
+.terminal-button.green {
+  background-color: #28c940;
+}
+
+.terminal-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
+.terminal-body {
+  position: sticky;
+  height: 370px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.terminal-prompt {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.terminal-input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: monospace;
+  font-size: 16px;
+  outline: none;
+  width: calc(100% - 20px); /* subtract the width of the prompt and margin from the input width */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.terminal-input:focus {
+  outline: none;
+}

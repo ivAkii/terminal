@@ -105,15 +105,15 @@ window.addEventListener('load', () => {
 
 async function open_terminal(){
   await delay(700);
-  createText("Welcome ");
+  printToTerminal("Welcome ");
   await delay(700);
-  createText("Starting the server...");
+  printToTerminal("Starting the server...");
   await delay(850);
-  createText("Command List:");
+  printToTerminal("Command List:");
   await delay(700);
-  createCode("about", "Get to know me");
+  printToTerminal("about", "Get to know me");
   await delay(700);
-  createCode("contact", "My socials");
+  printToTerminal("contact", "My socials");
   await delay(500);
   createNewPrompt("start")
 }

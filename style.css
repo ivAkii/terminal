@@ -4,10 +4,11 @@ html, body {
  /* background-image: linear-gradient(to bottom, #854c6e, #d27f73); */
   background-image: url("./img/bg.jpg");
   background-repeat: no-repeat;
-
+  background-size: autp;
  image-rendering: pixelated;
   color: #173c44;
   font-family: 'KarlaRegular',courier,monospace;
+  font-weight: bold;
   font-size: 16px;
   margin: 0;
   padding: 0;

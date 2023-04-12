@@ -1,9 +1,12 @@
 html, body {
   height: 100%;
   background-color: #000;
-  background-image: linear-gradient(to bottom, #854c6e, #d27f73);
+ /* background-image: linear-gradient(to bottom, #854c6e, #d27f73); */
+  background-image: url("./img/bg.jpg");
   background-repeat: no-repeat;
-  color: #be7171;
+
+ image-rendering: pixelated;
+  color: #173c44;
   font-family: 'KarlaRegular',courier,monospace;
   font-size: 16px;
   margin: 0;
@@ -14,9 +17,9 @@ html, body {
 
 
 .terminal {
-  background-color: #4b3031;
-  border: 2px solid ;
-  border-image: linear-gradient(135deg,#c82955,#783277) 1;
+  background-color: #fdfeff75;
+ 
+  border: 1px solid #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   height: 400px;
@@ -27,9 +30,9 @@ html, body {
 }
 
 .terminal-header {
-  background-color: #000;
-  border-bottom: 1px solid ;
-  border-image: linear-gradient(135deg,#c82955,#783277) 1;
+  background-color: #4a92aa;
+  border-bottom: 1px solid #fff;
+
   display: flex;
   height: 30px;
   justify-content: space-between;

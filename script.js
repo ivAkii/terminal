@@ -7,7 +7,7 @@ const commandFunctions = {
     printToTerminal('Hello');
   },
   help: () => {
-    printToTerminal('Available commands: test, help');
+    printToTerminal('Available commands: contact, about, test, help');
   },
   about: () => {
     printToTerminal(`I'm an 18-year-old computer science student in my first year of studies. A Manga enthusiast and used to watch anime a lot, but now I rarely do. Known as Gacha Addict in my circle. I love messing around with code and I find that I learn best through hands-on experience.`);

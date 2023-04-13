@@ -1,45 +1,52 @@
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const terminalBody = document.querySelector('.terminal-body');
+let terminalInput = document.querySelector('.terminal-input');
+terminalInput.addEventListener('keydown', handleKeyDown);
 
 const commandFunctions = {
-  test: () => {
-    printToTerminal('Hello');
-  },
   help: () => {
     printToTerminal('Available commands: contact, about, test, help');
   },
   about: () => {
-    printToTerminal(`I'm an 18-year-old computer science student in my first year of studies. A Manga enthusiast and used to watch anime a lot, but now I rarely do. Known as Gacha Addict in my circle. I love messing around with code and I find that I learn best through hands-on experience.`);
+    printToTerminal(`I'm an 18-year-old computer science student <br> in my first year of studies. A Manga enthusiast and used to watch anime a lot, but now I rarely do. Known as Gacha Addict in my circle. I love messing around with code and I find that I learn best through hands-on experience.`);
   },
-  contact: () => {
+  contact: async() => {
     printToTerminal("Discord: Netizen AKi#1275")
+    await delay(200);
     printToTerminal("Mail: iv.akii.ouo@gmail.com")
   },
   start: () => {
+    printToTerminal('Permission denied.');   
+  },
+  clr: () => {
     printToTerminal("Permission Denied.")
   },
 }
-function handleCommand(command) {
+function addLineBreaks(text) {
+  return text.split('\n').map((line) => {
+    return line.trim() ? line + '<br>' : '';
+  }).join('');
+}
+async function handleCommand(command) {
   if (!command) {
     createNewPrompt(command);
     return; // do nothing if command is empty
   }
   const commandFunction = commandFunctions[command];
   if (commandFunction) {
-
-    commandFunction();
+    await commandFunction(); 
+    createNewPrompt(command);
   } else {
     printToTerminal(`Command not found: ${command}`);
+    createNewPrompt(command);
   }
-  createNewPrompt(command);
 }
 
 function createNewPrompt(command) {
-  // const terminalBody = document.querySelector('.terminal-body');
   const prompt = document.createElement('span');
   prompt.classList.add('terminal-prompt');
-  prompt.innerHTML  = 'user@guest <spam id="hotpink">$</spam>';
+  prompt.innerHTML  = '~/guest<spam id="hotpink">$</spam>';
   terminalBody.appendChild(document.createElement('br'));
   const input = document.createElement('input');
   input.type = 'text';
@@ -56,25 +63,14 @@ function createNewPrompt(command) {
   terminalInput.addEventListener('keydown', handleKeyDown);
 }
 
-
-
 function handleKeyDown(event) {
   if (event.key === 'Enter') {
     const command = terminalInput.value.trim();
-    terminalInput.value = '';
     handleCommand(command);
   }
 }
 
-let terminalInput = document.querySelector('.terminal-input');
-terminalInput.addEventListener('keydown', handleKeyDown);
 
-// function printToTerminal(text) {
-//   const terminalBody = document.querySelector('.terminal-body');
-//   const output = document.createElement('div');
-//   output.textContent = text;
-//   terminalBody.appendChild(output);
-// }
 async function printToTerminal(text) {
   const terminalBody = document.querySelector('.terminal-body');
   const output = document.createElement('div');
@@ -86,40 +82,13 @@ async function printToTerminal(text) {
   }
 }
 
-function createText(text, classname){
-  const p = document.createElement("p");
-  p.innerHTML = text;
-  terminalBody.appendChild(p);
-}
-
-function createCode(code, text){
-  const p = document.createElement("p");
-  p.setAttribute("class", "code");
-  p.innerHTML =`${code} : <span class='text'> ${text} </span>`;
- terminalBody.appendChild(p);
-}
-
-
-
 window.addEventListener('load', () => {
   terminalInput.value = 'start';
   terminalInput.disabled = true;
 });
 
-async function open_terminal(){
-  await delay(700);
-  printToTerminal("Welcome ");
-  await delay(700);
-  printToTerminal("Starting the server...");
-  await delay(850);
-  printToTerminal("Command List:");
-  await delay(700);
-  printToTerminal("about", "Get to know me");
-  await delay(700);
-  printToTerminal("contact", "My socials");
-  await delay(500);
-  createNewPrompt("start")
+async function initializeTerminal() {
+  await printToTerminal('Welcome to the terminal! | Type help for more information!');
+  createNewPrompt("start");
 }
-
-open_terminal();
-
+initializeTerminal()
